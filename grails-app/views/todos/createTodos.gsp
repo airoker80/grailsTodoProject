@@ -99,28 +99,28 @@
 
         </g:remoteFunction>
 
-/*        $(document).ready(function(){
-            $('button').click(function(){
-                var URL="${createLink(controller:'todos',action:'getTodosByTag')}";
+        %{--$(document).ready(function(){--}%
+            %{--$('button').click(function(){--}%
+                %{--var URL="${createLink(controller:'todos',action:'getTodosByTag')}";--}%
 
-                $.ajax({
-                    url:URL,
-                    data: {id:tagId},
-                    success: function(resp){
-                        console.log(resp);
-                        var tbody = '';
-                       /!* $("#author").val(resp.author);
-                        $("#book").val(resp.bookName);*!/
-                        var i;
-                         i=0;
-                       for (i=0;i<resp.length;i++){
-                           tbody +='<td>'+resp[i].note+'</td>'
-                           $("#tbody").append(tbody);
-                       }
-                    }
-                });
-            });
-        });*/
+                %{--$.ajax({--}%
+                    %{--url:URL,--}%
+                    %{--data: {id:tagId},--}%
+                    %{--success: function(resp){--}%
+                        %{--console.log(resp);--}%
+                        %{--var tbody = '';--}%
+                       %{--/!* $("#author").val(resp.author);--}%
+                        %{--$("#book").val(resp.bookName);*!/--}%
+                        %{--var i;--}%
+                         %{--i=0;--}%
+                       %{--for (i=0;i<resp.length;i++){--}%
+                           %{--tbody +='<td>'+resp[i].note+'</td>'--}%
+                           %{--$("#tbody").append(tbody);--}%
+                       %{--}--}%
+                    %{--}--}%
+                %{--});--}%
+            %{--});--}%
+        %{--});--}%
     }
 </script>
 </body>
