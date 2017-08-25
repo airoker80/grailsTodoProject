@@ -59,7 +59,9 @@ class TodosController {
        def result = sql.rows("SELECT * FROM tags_todos INNER JOIN todos WHERE tags_todos.todos_id = todos.id AND tags_id="+tagId+";")
         println result
         sql.close();
-        [todosbyTags:result]
+         render (template: 'todoList', model: [result:result])
+
+//        render  result;
     }
 
 }

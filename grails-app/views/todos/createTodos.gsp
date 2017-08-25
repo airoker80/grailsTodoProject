@@ -61,10 +61,11 @@
 
                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
     <g:each in="${taglist}" status="i" var="myVar">
-                      <li role="presentation">
+                      <li role="presentation" onclick='showTodosByTag("${taglist.id[i]}")'>
         <g:link controller="todos" action="getTodosByTag" id="${taglist.id[i]}" >
             ${taglist.tags[i]}
         </g:link>
+            %{--${taglist.tags[i]}--}%
 
                       </li>
     </g:each>
@@ -72,6 +73,18 @@
 
             </div>
 
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Notes</th>
+                <th>created at</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
     </div>
 
     </div>
@@ -79,5 +92,36 @@
 </div>
 
 
+<script>
+    function showTodosByTag(tagId) {
+
+        <g:remoteFunction controller="todos" action="getTodosByTag" params="{id:tagId}" update="tbody">
+
+        </g:remoteFunction>
+
+/*        $(document).ready(function(){
+            $('button').click(function(){
+                var URL="${createLink(controller:'todos',action:'getTodosByTag')}";
+
+                $.ajax({
+                    url:URL,
+                    data: {id:tagId},
+                    success: function(resp){
+                        console.log(resp);
+                        var tbody = '';
+                       /!* $("#author").val(resp.author);
+                        $("#book").val(resp.bookName);*!/
+                        var i;
+                         i=0;
+                       for (i=0;i<resp.length;i++){
+                           tbody +='<td>'+resp[i].note+'</td>'
+                           $("#tbody").append(tbody);
+                       }
+                    }
+                });
+            });
+        });*/
+    }
+</script>
 </body>
 </html>
