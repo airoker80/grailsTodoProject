@@ -54,12 +54,15 @@ class TodosController {
     def getTodosByTag(){
         println "params ->"+ params
         def tagId = (params.id)
+        def list;
 //        println tag/
         def sql = Sql.newInstance(dataSource)
-       def result = sql.rows("SELECT * FROM tags_todos INNER JOIN todos WHERE tags_todos.todos_id = todos.id AND tags_id="+tagId+";")
-        println result
+       def result = sql.rows('SELECT * FROM tags_todos INNER JOIN todos WHERE tags_todos.todos_id = todos.id AND tags_id=:tagId',[tagId:tagId])
+        println  'sql-->' +result
+        list = result
         sql.close();
-         render (template: 'todoList', model: [result:result])
+        println "list" + list
+         render (template: 'todoList', model: [result:list])
 
 //        render  result;
     }

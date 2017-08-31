@@ -1,3 +1,7 @@
-<g:each in="${result[0]}">
-    <tr> ${it.note}</tr>
+<g:each in="${result}" var="x">
+    <ul>
+        <li>
+            ${x.get('note')}
+        </li>
+    </ul>
 </g:each>
